@@ -13,7 +13,7 @@ export function app(initFn: () => void) {
 
   // Widget factory
   const w = {
-    rect(options: any) {
+    rect(options: Partial<NewcarRect>) {
       const instance = reactive(new NewcarRect(options))
       widgets.push({
         instance,

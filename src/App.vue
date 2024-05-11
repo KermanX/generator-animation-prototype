@@ -3,7 +3,7 @@ import { app } from './lib';
 
 const { w, a, run, stop, pause, resume, render } = app(() => {
   w.rect({
-    color: 'red',
+    backgroundColor: 'red',
     x: 10,
     y: 10,
     width: 100,
@@ -22,6 +22,28 @@ const { w, a, run, stop, pause, resume, render } = app(() => {
       // Draw a circle with radius 100 around (100, 100) in 3 seconds
       yield* a.effect(3000, time => {
         w.x = 400 + Math.cos(time / 3000 * Math.PI * 2) * 200
+        w.y = 400 - Math.sin(time / 3000 * Math.PI * 2) * 200
+      })
+    }
+  })
+
+  w.rect({
+    backgroundColor: 'blue',
+    x: 600,
+    y: 10,
+    width: 70,
+    height: 70,
+  }).setup(function* f(w) {
+    yield* a.linear(1000, {
+      x: 30,
+      y: 400,
+    })
+
+    yield* a.sleep(2000)
+
+    for (let i = 0; i < 5; i++) {
+      yield* a.effect(3000, time => {
+        w.x = 230 - Math.cos(time / 3000 * Math.PI * 2) * 200
         w.y = 400 - Math.sin(time / 3000 * Math.PI * 2) * 200
       })
     }
