@@ -1,10 +1,10 @@
 import { h, reactive, ref } from "vue"
 import { AnimationGenerator } from "./animation"
-import { NewcarRect, NewcarWidget } from "./widget"
+import { RectWidget, Widget } from "./widget"
 
 export function app(initFn: () => void) {
   const widgets: {
-    instance: NewcarWidget,
+    instance: Widget,
     stepStart: number,
     finished: boolean,
   }[] = reactive([])
@@ -13,8 +13,8 @@ export function app(initFn: () => void) {
 
   // Widget factory
   const w = {
-    rect(options: Partial<NewcarRect>) {
-      const instance = reactive(new NewcarRect(options))
+    rect(options: Partial<RectWidget>) {
+      const instance = reactive(new RectWidget(options))
       widgets.push({
         instance,
         stepStart: 0,

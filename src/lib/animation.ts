@@ -1,4 +1,4 @@
-import { NewcarWidget } from "./widget";
+import { Widget } from "./widget";
 
 export type AnimationGenerator = Generator<
   boolean, // true: step start; false: step continue
@@ -7,7 +7,7 @@ export type AnimationGenerator = Generator<
     /**
      * The widget instance
      */
-    w: NewcarWidget,
+    w: Widget,
     /**
      * The time since this step started
      */

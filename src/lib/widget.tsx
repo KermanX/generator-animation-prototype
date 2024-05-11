@@ -1,7 +1,7 @@
 import { VNode, markRaw } from "vue";
 import { AnimationGenerator } from "./animation";
 
-export abstract class NewcarWidget {
+export abstract class Widget {
   generator: AnimationGenerator;
 
   setup(f: (w: this) => AnimationGenerator) {
@@ -11,7 +11,7 @@ export abstract class NewcarWidget {
   abstract render(): VNode;
 }
 
-export class NewcarRect extends NewcarWidget {
+export class RectWidget extends Widget {
   x = 0;
   y = 0;
   width = 100;
